@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+</head>
+<style>
+    h4{
+        text-align: right;
+        margin-right: 30px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+    #upd{
+        background-color: orange;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    #del{
+        background-color: red;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    #add {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      width: 300px;
+      height: 50px;
+      margin-left: 110px;
+      border-color: white;
+      margin-top: 10px;
+    }
+    input{
+        cursor: pointer;
+    }
+    #add:hover {
+      background-color: #45a049;
+    }
+    .note{
+        background-color: yellow;
+        width: 500px;
+        word-wrap: break-word;
+        border-radius: 5%;
+        border-style: solid;
+        word-wrap: break-word;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    #no_notes{
+        text-align: left;
+    }
+    #description{
+        text-align: left;
+    }
+    #logout{
+        background-color: red;
+        height: 30px;
+        width: 80px;
+        color: white;
+        border-color: white;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="nickname">
+            <h4>{{ username }}'s notes(заметки)</h4>
+            <form action="/" method="get">
+                <input type="submit" value="Выйти" id="logout">
+            </form>
+            <hr>
+        </div>
+        <div class="notes">
+            {% if not has_notes %}
+            <h4 id="no_notes">У вас еще пока нету заметок</h4>
+            {% else %}
+            {% for note in notes %}
+            <div class="note">
+                <h2>{{ notes[note]['header'] }}</h2>
+                <h4 id="description">{{ notes[note]['description'] }}</h4>
+                <h5>{{  notes[note]['time'] }}</h5>
+                <form method="POST" action="/menu/{{ username }}/{{ password }}/{{ note }}/update">
+                    <input type="submit" value="Изменить заметку" id="upd">
+                </form>
+                <form method="POST" action="/menu/{{ username }}/{{ password }}/{{ note }}/delete">
+                    <input type="submit" value="Удалить заметку" id="del">
+                </form>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <form action="/menu/{{ username }}/{{ password }}/add_note" method="POST">
+            <input type="submit" value="Добавить заметку" id="add">
+        </form>
+    </div>
+</body>
+</html>

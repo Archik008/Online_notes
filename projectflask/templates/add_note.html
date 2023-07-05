@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать заметку</title>
+</head>
+<style>
+    .input-field {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .input-field input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 50px;
+    }
+    
+    .input-field input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      width: 300px;
+    }
+
+    .input-field input[type="text"]{
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    
+    .input-field input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+    h4{
+        text-align: right;
+        margin-right: 60px;
+    }
+    #cancel{
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        width: 200px;
+        height: 40px;
+        border-color: white;
+        margin-left: 150px;
+    }
+    textarea{
+        width: 513px;
+        height: 300px;
+    }
+    #btn{
+        margin-left: 110px;
+    }
+    hr{
+        margin-left: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="nickname">
+            <h4>(Создать заметку){{ username }}'s notes(заметки)</h4>
+            <form action="/menu/{{ username }}/{{ password }}/None" method="get">
+                <input type="submit" value="Отменить действие" id="cancel">
+            </form>
+            <hr>
+        </div>
+        <form action="/menu/{{ username }}/{{  password }}/None" method="post">
+            <div class="input-field">
+                <input type="text" placeholder="Заголовок заметки" name="header" id="header">
+            </div>
+            <div class="input-field">
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Описание заметки"></textarea>
+            </div>
+            <div class="input-field">
+                <input type="submit" value="Потвердить" id="btn">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 200px;
+    }
+    
+    .input-field {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .input-field input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .input-field input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .input-field input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    h2{
+        text-align: center;
+    }
+    h6{
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Заметки</h1>
+        <h2>Вход</h2>
+        <form method="POST">
+            <div class="input-field">
+                <input type="text" placeholder="Введите ник" name="newname" id="newname" required>
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="Введите ваш пароль" name="password" id="password" required>
+            </div>
+            <div class="input-field">
+                <input type="submit" value="Потвердить" name="enternew" id="enternew">
+            </div>
+        </form>
+        <h6>By: Archik008</h6>
+    </div>
+</body>
+</html>
